@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>HOSPITAL MANAGEMENT SYSTEM</h1>
+    <section id="registerSection">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required minlength="8">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" required>
+            <label for="role">Role:</label>
+            <select id="role">
+                <option value="PATIENT">Patient</option>
+                <option value="DOCTOR">Doctor</option>
+            </select>
+            <button type="submit">Register</button>
+            <p>Already registered? <a href="#" onclick="showLogin()">Login here</a></p>
+        </form>
+    </section>
+ <section id="loginSection" style="display:none;">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" required>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" required minlength="8">
+            <button type="submit">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+        </form>
+        <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+    </section>
+<section id="dashboardSection" style="display:none;">
+        <h2>Welcome, <span id="userName"></span>!</h2>
+        <button onclick="logout()">Logout</button>
+        <h3>Schedule an Appointment</h3>
+        <form id="appointmentForm">
+            <label for="patientId">Patient ID:</label>
+            <input type="text" id="patientId" required>
+            <label for="doctorId">Doctor ID:</label>
+            <input type="text" id="doctorId" required>
+            <label for="appointmentTime">Appointment Time:</label>
+            <input type="datetime-local" id="appointmentTime" required>
+            <button type="submit">Schedule Appointment</button>
+        </form>
+        <h3>View Patient History</h3>
+        <input type="text" id="historyPatientId" placeholder="Enter Patient ID">
+        <button onclick="viewHistory()">View History</button>
+        <div id="history"></div>
+        <h3>Generate Bill</h3>
+        <input type="text" id="billPatientId" placeholder="Enter Patient ID" required>
+        <button onclick="generateBill()">Generate Bill</button>
+        <div id="bill"></div>
+    </section>
+<script src="script.js"></script>
+</body>
+</html>
